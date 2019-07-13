@@ -57,19 +57,41 @@
     
     * 线程的使用
     
-     实现Runnable重写run方法或实现Callable重写call方法（可以有返回值），但他们都是“任务”,不算线程，反倒像线程里的run，所以终归是需要Thread.start(参数)，参数是Runnbale对象或者Callable用FutureTask封装的对象。
+      实现Runnable重写run方法或实现Callable重写call方法（可以有返回值），但他们都是“任务”,不算线程，反倒像线程里的run，所以终归是需要Thread.start(参数)，参数是Runnbale对象或者Callable用FutureTask封装的对象。
     
-    再或者继承Thread，Java是单继承，多接口，所以上面两种方法虽然像是run，Thread自己也可以，但是价值就在这里。
+     再或者继承Thread，Java是单继承，多接口，所以上面两种方法虽然像是run，Thread自己也可以，但是价值就在这里。
     
     * ThreadLocal是什么
     
-     ThreadLocal就是申明，我想改这个变量但不想同步到主内存里，像是日期格式，这样每个线程可以有自己设计的格式。底层原理是ThreadLocal其实是ThreadLocalMap的封装类，这个map,key是本地线程对象（弱引用），value是你赋的值（强引用，得用方法变成弱引用才能GC）。
+      ThreadLocal就是申明，我想改这个变量但不想同步到主内存里，像是日期格式，这样每个线程可以有自己设计的格式。底层原理是ThreadLocal其实是ThreadLocalMap的封装类，这个map,key是本地线程对象（弱引用），value是你赋的值（强引用，得用方法变成弱引用才能GC）
     
     * 为什么要用线程池
      
       将线程集中在线程池可以统一管理、监控，也可以限制线程数，而且它更像Redis的缓存，可以重复利用，所以降低线程重复创建和销毁的能耗，与此同时提高已有线程调用的响应速度。
     
-    * 
+    * JUC 包中的原子类是哪4类?好处是什么?
+      
+      JUC就是java.util.concurrent，并发包；其实它的原子类的作用是用它定义的原子类去包装你的数据，然后你用它封装的方法操作（以原子的方式去更新数据），所以好处就是你不用去给方法声明synchronized，就可以实现资源共享（感觉像volatile封装成各个原子类名，还加了方法）；
+      既然是以原子的方式去更新数据，就有4种数据类型：基本数据类型（AtomicInteger/Long/Boolean）,数组类型(AtomicInteger/Long/ReferenceArray),引用类型（AtomicReference/StampedReference/MarkableRefernce）,对象的属性修改类型（AtomicLongField/IntegerFieldUpdater,AtomicStampedReference）
+      
+    * 能不能给我简单介绍一下 AtomicInteger 类的原理
+    
+      用本地方法unsafe的objectFieldOffset获得旧值的地址，采用cas去置换，保存到volatile变量去可见。
+    
+    * AQS是什么，AQS 原理是什么，AQS定义两种资源共享方式，AQS底层使用了模板方法模式
+    
+      AQS是锁和同步器的框架，很多锁（ReentrantLock,Semophoe等）都是在这个框架的基础上搭建的，也就是重写AQS的方法。
+      
+      原理有点搞笑，以为是怎怎么么同步，到头来只是管理线程阻塞如何排队和唤醒（但这确实就是锁的雏形啊），还以为是怀着特警的梦想去当了交警。
+      
+      用了双向的虚拟队列去访问资源，去节点建立联系。
+      
+      资源分为独占（单线程锁ReentrantLock）和分享（多线程锁CountDownLatch）
+      
+      模板方法模式就是继承AbstractQueuedSynchronizer，去重写它的方法。
+      
+      值得一提的模板方法就那几个：判断是否独占资源（isHeldExclusively），抢占/释放资源(tryAcquire/Release,共享方式的：tryAcquireShared,tryReleaseShared.
+      
     
     
     
