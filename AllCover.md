@@ -93,6 +93,50 @@
       值得一提的模板方法就那几个：判断是否独占资源（isHeldExclusively），抢占/释放资源(tryAcquire/Release,共享方式的：tryAcquireShared,tryReleaseShared.
       
     
+    * interrupt()和interrupted() 中断
+      
+       一个线程Thread.interrupt()意味着它被中断，如果中断的时候它是阻塞、等待的，中断会把它提前结束进程（该线程后面的代码就不执行了）；如果它是在running情况下被中断，可以用interrupted（）来判断是否中断（所以你要在中断时候执行后面的代码，就用while(!interrupted()),run的实际逻辑在while里）
+      
+    * Executor的中断，指定中断
+    
+      发现他挺多用Executor.newCacheThreadPool()->.execute(()->{})方法来启动线程；.shutDownNow()相当于interrupt（）
+      
+      如果只想中断某一个线程就.submit(()->{}),应该是其他的照样用.execute()，submit返回Future<?>变量->.cancel(true)中断
+     
+    * synchronized的具体用法 ReentrantLock的具体用法 比较
+    
+      synchronized除了用在方法前，其他的如代码块、类都得在（）里指明如synchronize(this),synchronize(xxx.class);
+      
+      值得一提的是同步的范围，除了类和静态方法可以被不同对象共享外，其他只能在同一个对象里共享。
+      
+      ReentrantLock通过新建对象，在向上锁的地方.lock/.unlock 来使用
+      
+      他两的区别是：同步是共享资源上锁，可重入锁是独占资源上锁；值得一提的是同步是JVM实现，可重入锁是JDK实现，因此同步有更广的可用性，不用考虑JDK版本问题；可重入锁可以是公平锁，绑定多条件
+    
+    * join()
+    
+      有先后顺序时用join（），让一个线程挂起等另一个线程好在执行，这时join的线程并非申请不到资源，所以不算忙等待，只是等才能准确。
+     
+    *  Object 的方法 await()方法 
+    
+      wait方法属于Object方法，这让他直接可以使用wait()；sleep是Thread的方法，所以还得前缀Thread.sleep();
+     
+      await就是比wait多了可指定条件唤醒，signal/signalAll；await是Condition上的方法，Condition有锁来创建
+    
+    * CountDownLatch的用法 CyclicBarrier的用法 Semaphore的用法
+    
+      都是创建对象的时候指定限制数量，前两个都是等到数量到了自动被唤醒countDownLatch.await();countDownLatch.countDown()/cyclicBarrier.await()它默默在计数，而不是倒计时到0；
+      Semaphore则是.acquire()/.release()，申请-1，完成+1,资源执行。
+    
+    * 构造函数有多个
+      
+      但是创建对象，初始化只有1个。
+    
+    
+    
+    
+    
+    
     
     
     
