@@ -1,5 +1,5 @@
 - [数据库SQL学习](#数据库SQL学习)
-  - [存储引擎myisam 和 innodb](#存储引擎myisam 和 innodb)
+  - [存储引擎myisam和innodb](#存储引擎myisam和innodb)
   - [mysql索引](#mysql索引)
   - [事务](#事务)
   - [大表优化](#大表优化)
@@ -8,7 +8,7 @@
 
 
 # 数据库SQL学习
-## 存储引擎myisam 和 innodb
+## 存储引擎myisam和innodb
 > myisam是mysql 5.5之前的默认引擎，后来被Innodb代替为默认引擎。
 
 > 当你不需要处理高并发、不要求事务处理，不讲求事务崩溃后的数据安全问题那么就用myisam,它处理速度快。innnodb：支持事务、支持行级锁，有处理事务崩溃的ACID
