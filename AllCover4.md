@@ -10,9 +10,11 @@
   - [Arrays.asList() ](#Arrays.asList() )
   - [将数组转换为ArrayList](#将数组转换为ArrayList)
   - [将List转换为数组](#将List转换为数组)
-  - [反射](#反射)
-  - [反射](#反射)
-  - [反射](#反射)
+  - [servlet相比CGI](#servlet相比CGI)
+  - [redirect和forward](#redirect和forward)
+  - [JSP内置对象](#JSP内置对象)
+  - [getAttribute()和getParameter()](#getAttribute()和getParameter())
+  - [数组扩容](#数组扩容)
 
 # java基础
 ## 数据类型
@@ -64,3 +66,18 @@ BigDecimal 主要用来操作（大）浮点数，BigInteger 主要用来操作�
 > 前提是它是由Arrays.asList()来的或那种类型的   l.toArray(new String[0])  必须声明相应的泛型这里说明是String[]
 
  集合的remove/add应该在Iterator进行，而不是foreach循环，因为前者是fail-safe,后者是fail-fast.
+ 
+## servlet相比CGI
+> common gateway interface,servlet只需要执行一个“系统进程”,多个请求只加载一个“类”。
+
+## redirect和forward
+> 登录等携带信息的用forward,不用保留信息地用redirect
+
+## JSP内置对象
+> 4个作用域 2个输出 1个配置 1个报错 1个本身页面说是相当于java的this
+
+## getAttribute()和getParameter()
+> 表单、作用域 字符串、对象
+
+## 数组扩容
+> Arrays.copyOf(storage, newCapacity);可以把storage数组扩大容量为newCapacity
