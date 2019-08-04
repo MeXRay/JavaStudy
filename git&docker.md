@@ -7,7 +7,7 @@
   - [镜像](#镜像)
   - [疑问](#疑问)
   - [结论](#结论)
-  - [运行命令](#运行命令)
+  - [参考运行命令](#参考运行命令)
 
 # git
 ## 版本系统的发展
@@ -39,4 +39,4 @@
 > build,ship,run;docker仓库存的是同一镜像的不同版本
 
 ## 参考运行命令
-> [参考](<https://github.com/Snailclimb/JavaGuide/blob/master/docs/tools/Docker-Image.md#%E4%B8%80-docker-%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F>)
+> [参考运行命令](<https://github.com/Snailclimb/JavaGuide/blob/master/docs/tools/Docker-Image.md#%E4%B8%80-docker-%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F>)
