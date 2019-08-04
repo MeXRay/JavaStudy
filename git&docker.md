@@ -11,4 +11,4 @@
 
 ## git的提交过程
 > 在工作目录modifiy修改————之后把修改在暂存区域stage暂存————最后提交修改的时候从stage拿取信息存储到快照里保存到git仓库
-![git提交]()
+![git提交](https://github.com/MeXRay/JavaStudy/blob/master/1.png)
