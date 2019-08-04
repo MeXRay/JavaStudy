@@ -52,7 +52,6 @@
 > 门是慢开始  数据丢失回到门口时复生时间要快重传快恢复（3次确认） 
 
 # HTTP状态码
-![状态码](https://user-gold-cdn.xitu.io/2018/4/19/162db5e985aabdbe?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 ## cookie禁用
 > session建立在cookie上，数据是由数据库取后放到cookie，cookie就像一辆可通行的车，没有了它，数据不能传输
 
