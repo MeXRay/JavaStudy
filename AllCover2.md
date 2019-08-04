@@ -35,6 +35,7 @@
 > 数据单元是帧，对上是接受并封装成帧，对下是接受并检错交付给网络层
 ## 七层体系结构图
 > ARP/RARP在数据链路层（早早就定亲的感觉） RPC在会话层
+![七层体系结构图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019/7/七层体系结构图.png)
 
 # TCP协议
 ## 怪不得说TCP可靠
@@ -51,6 +52,8 @@
 > 门是慢开始  数据丢失回到门口时复生时间要快重传快恢复（3次确认） 
 
 # HTTP状态码
+![状态码](https://user-gold-cdn.xitu.io/2018/4/19/162db5e985aabdbe?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
 ## cookie禁用
 > session建立在cookie上，数据是由数据库取后放到cookie，cookie就像一辆可通行的车，没有了它，数据不能传输
 
