@@ -1,4 +1,13 @@
 - [git](#git)
+  - [版本系统的发展](#版本系统的发展)
+  - [git和传统的版本系统保存策略上的不同](#git和传统的版本系统保存策略上的不同)
+  - [git的提交过程](#git的提交过程)
+- [docker](#docker)
+  - [存在的原因和与虚拟机比较](#存在的原因和与虚拟机比较)
+  - [镜像](#镜像)
+  - [疑问](#疑问)
+  - [结论](#结论)
+  - [运行命令](#运行命令)
 
 # git
 ## 版本系统的发展
@@ -13,3 +22,21 @@
 > 在工作目录modifiy修改————之后把修改在暂存区域stage暂存————最后提交修改的时候从stage拿取信息存储到快照里保存到git仓库
 ![git提交](https://github.com/MeXRay/JavaStudy/blob/master/1.png)
 ![gitt提交图](https://github.com/MeXRay/JavaStudy/blob/master/git_graph.png)
+
+# docker
+## 存在的原因和与虚拟机比较
+> 如果说JVM是为了让java写出的代码能在不同机器上可运行，docker的着眼点更细粒化，它是想让应用程序有平台无关性；和虚拟机比起来，说是docker像线程，它隔离了宿主机上的操作系统和其他线程，不用每个应用都需要附带一个OS，启动时候也就不用先启动OS那样快，而且容量多，够轻。
+
+## 镜像
+> 镜像像是docker中的类，类可以生成实例，即容器。镜像是代码和组件这些必备品。镜像取出容器是一层层把镜像的东西取出来，然后盖上一层writable layer
+
+## 疑问
+> 自动复用代码？,Docker 在下载之前，会去检测本地是否会有同样 ID 的层，如果本地已经存在了，就直接使用本地的就好了。
+
+>是一个除了内核外的完整运行环境? 
+
+## 结论
+> build,ship,run;docker仓库存的是同一镜像的不同版本
+
+## 运行命令
+> ![参考](https://github.com/Snailclimb/JavaGuide/blob/master/docs/tools/Docker-Image.md#%E4%B8%80-docker-%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F)
