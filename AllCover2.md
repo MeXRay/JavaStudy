@@ -35,7 +35,6 @@
 > 数据单元是帧，对上是接受并封装成帧，对下是接受并检错交付给网络层
 ## 七层体系结构图
 > ARP/RARP在数据链路层（早早就定亲的感觉） RPC在会话层
-![七层体系结构图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019/7/七层体系结构图.png)
 
 # TCP协议
 ## 怪不得说TCP可靠
