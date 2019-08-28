@@ -52,7 +52,7 @@
 > 门是慢开始  数据丢失回到门口时复生时间要快重传快恢复（3次确认） 
 
 # HTTP状态码
-![状态码](https://user-gold-cdn.xitu.io/2018/4/19/162db5e985aabdbe?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![状态码](https://camo.githubusercontent.com/08ea24912a75db4a06bfd17995ce464ee4b4af48/68747470733a2f2f6d792d626c6f672d746f2d7573652e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f323031392f372f2545372538412542362545362538302538312545372541302538312e706e67)
 
 ## cookie禁用
 > session建立在cookie上，数据是由数据库取后放到cookie，cookie就像一辆可通行的车，没有了它，数据不能传输
