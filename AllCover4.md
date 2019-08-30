@@ -65,7 +65,7 @@ BigDecimal 主要用来操作（大）浮点数，BigInteger 主要用来操作�
 ## 将List转换为数组
 > 前提是它是由Arrays.asList()来的或那种类型的   l.toArray(new String[0])  必须声明相应的泛型这里说明是String[]
 
- 集合的remove/add应该在Iterator进行，而不是foreach循环，因为前者是fail-safe,后者是fail-fast.
+ 集合的remove/add不能在foreach循环进行.Iterator.remove()是并发安全的，list.remove不是
  
 ## servlet相比CGI
 > common gateway interface,servlet只需要执行一个“系统进程”,多个请求只加载一个“类”。
