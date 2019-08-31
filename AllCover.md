@@ -281,7 +281,7 @@
      因为他说微服务有spring cloud，分布式有dubbo 
   * 消息队列 削峰和流控  常见消息队列在吞吐量、可用性、时效性、功能支持上的比较
   
-     常见消息队列有基于JMS的ActiveMQ，基于JMQP的RabbitMQ，还有RocketMQ和Kafka
+     常见消息队列有基于JMS的ActiveMQ，基于AMQP的RabbitMQ，还有RocketMQ和Kafka
      
      吞吐量肯定是阿里巴巴这个电商大鳄的RocketMQ牛逼，Kafka火、常用也是因为吞吐量
      
