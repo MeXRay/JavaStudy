@@ -60,7 +60,9 @@ BigDecimal 主要用来操作（大）浮点数，BigInteger 主要用来操作�
 ## 将数组转换为ArrayList
 > 如果数组是要自己写的话，直接把数组的生成用在ArrayList的创建中，new ArrayList(Arrays.asList({...}) 
 
-如果是已经有的数组，就用Stream 配合 Collector 去实现： Arrays.stream(myArray).collect(Collectors.toList())
+如果是已经有的数组（必须是包装类型)，就用Stream 配合 Collector 去实现： Arrays.stream(myArray).collect(Collectors.toList())
+
+前者返回ArrayList,后者放回List<T>
 
 ## 将List转换为数组
 > 前提是它是由Arrays.asList()来的或那种类型的   l.toArray(new String[0])  必须声明相应的泛型这里说明是String[]
